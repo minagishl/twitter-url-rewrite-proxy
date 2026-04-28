@@ -1,0 +1,8 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "env": {
+    "es2026": true,
+    "node": true
+  },
+  "ignorePatterns": ["node_modules/", "dist/", "build/", "out/", "coverage/", ".vscode/", ".idea/"]
+}
