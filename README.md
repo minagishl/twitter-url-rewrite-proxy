@@ -61,6 +61,49 @@ Single run:
 bun run start
 ```
 
+## Docker
+
+Build and run with Docker Compose:
+
+```bash
+docker compose up --build
+```
+
+The service is exposed on `http://localhost:3000` by default.
+
+You can pass rule-related environment variables through your shell or `.env` file:
+
+- `REWRITE_RULES_JSON`
+- `REWRITE_RULES`
+- `PORT`
+
+Stop the container:
+
+```bash
+docker compose down
+```
+
+## Docker Image Publishing (GitHub Actions)
+
+This repository includes a workflow at `.github/workflows/publish-docker-image.yml` that builds and pushes multi-arch images to GitHub Container Registry (GHCR).
+
+Trigger conditions:
+
+- push to `main`
+- version tags like `v1.0.0`
+- manual run from GitHub Actions (`workflow_dispatch`)
+
+Published image name:
+
+```text
+ghcr.io/<owner>/<repo>
+```
+
+Required repository settings:
+
+- GitHub Actions must be enabled.
+- Workflow permissions must allow `packages: write` (already set in the workflow).
+
 ## API Documentation
 
 OpenAPI UI:

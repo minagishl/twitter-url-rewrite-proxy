@@ -1,0 +1,13 @@
+services:
+  rewrite-proxy:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: twitter-url-rewrite-proxy:local
+    ports:
+      - "${PORT:-3000}:3000"
+    environment:
+      PORT: 3000
+      REWRITE_RULES_JSON: ${REWRITE_RULES_JSON:-}
+      REWRITE_RULES: ${REWRITE_RULES:-}
+    restart: unless-stopped
